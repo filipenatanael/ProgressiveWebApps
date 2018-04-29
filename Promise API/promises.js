@@ -1,18 +1,5 @@
-// JS Promises
+// JS Promises - Example 1
 
-/* Classic callback: addExtra(value, function)
-function addExtra(price, callback) {
-  setTimeout(function(){
-    callback(price + 1);
-  }, 300);
-}
-
-addExtra(1, function(newPrice){
-  console.log(newPrice);
-});
-*/
-
-// Example 1 - Promises
 function addExtraOne(price) {
   return new Promise(function(resolve, reject){
     setTimeout(function(){
