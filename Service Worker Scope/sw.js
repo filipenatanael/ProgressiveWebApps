@@ -1,9 +1,11 @@
 // Service Worker
 
-self.addEventListener('install', () => {
-  console.log('Service Worker Activate.');
+self.addEventListener('install', (e) => {
+  e.waitUntil(new Promise((resolve) => {
+    setTimeout(resolve, 5000);
+  }))
 });
 
-self.addEventListener('fetch', () => {
-  console.log(`Service Worker Fetch: ${e.request.url}`);
+self.addEventListener('activate', () => {
+  console.log('Service Worker Activate');
 });
