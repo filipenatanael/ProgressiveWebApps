@@ -1,7 +1,18 @@
-// Notification Support
+// LISTENER TO PUSH NOTIFICATION
+self.addEventListener('push', (e) => {
+  let options = {
+    body: 'A notification from the service worker.',
+    icon: 'icon.png',
+  }
 
+  let n = registration.showNotification('Service worker notification', options);
+});
+
+
+
+// RESPOND TO ALL CLIENTS
+//
 // self.addEventListener('message', (e) => {
-//   // Respond to all clients
 //  self.clients.matchAll().then((clients) => {
 //    clients.forEach((client) => {
 //      // Only respond to sending client

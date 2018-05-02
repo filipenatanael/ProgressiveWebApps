@@ -1,0 +1,20 @@
+{
+  "name": "push-notifications",
+  "version": "1.0.0",
+  "description": "progressive web apps learning",
+  "main": "push-server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "pwa",
+    "node",
+    "push",
+    "notifications"
+  ],
+  "author": "FN",
+  "license": "MIT",
+  "devDependencies": {
+    "web-push": "^3.3.0"
+  }
+}
