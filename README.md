@@ -5,5 +5,10 @@ Progressive Web Apps Pratices
 - Fecth API
 - Service Worker Lifecycle
 - Service Worker Scope
--- Events Fetch
--- Service Worker Registration
+- Events Fetch
+- Service Worker Registration
+
+
+## Install
+
+- npm i web-push --save-dev
