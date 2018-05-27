@@ -12,8 +12,8 @@
 
 if (window.caches) {
 
-  //  Open to chache
-  //  caches.open('myChache1')
+  // Open to chache
+  // caches.open('myChache1')
 
   // Checking chache key
   // caches.keys().then(console.log);
@@ -24,5 +24,24 @@ if (window.caches) {
 
   // To delete caches
   // caches.delete('myChache1').then(console.log);
+
+
+  // Cache API
+  caches.open('pwa-v2.0').then((cache) => {
+
+    // cache.addAll([
+    //   './index.html',
+    //   '../Resources/style.css',
+    //   './main.js'
+    // ]);
+
+    cache.match('./index.html').then((response) => {
+      response.text().then(console.log);
+    });
+
+    //cache.put('./index.html', new Response('My own HTML Now'));
+
+
+  });
 
 }
