@@ -1,27 +1,13 @@
 // Service Worker
 
-// self.addEventListener('install', (e) => {
-//   e.waitUntil(new Promise((resolve) => {
-//     setTimeout(resolve, 5000);
-//   }))
-// });
-//
-// self.addEventListener('activate', () => {
-//   console.log('Service Worker Activate');
-// });
+const MYCACHE = 'pwa-cache-2.0';
 
-self.addEventListener('message', (e) => {
-  // Respond to all clients
- self.clients.matchAll().then((clients) => {
-   clients.forEach((client) => {
-     // Only respond to sending client
-     if (e.source.id === client.id) {
-       client.postMessage("[ Private ] Hello from Service Worker.");
-     }
-   });
- });
-})
+self.addEventListener('install', (e) => {
 
-self.addEventListener('push', () => {
-   console.log('Push Received.');
-})
+  let cacheReady = caches.open(MYCACHE).then((cache) => {
+    console.log('New cache ready!');
+    return cache.add('/');
+  });
+
+  e.waitUntil(cacheReady);
+});
