@@ -8,8 +8,6 @@ self.addEventListener('push', (e) => {
   let n = registration.showNotification('Service worker notification', options);
 });
 
-
-
 // RESPOND TO ALL CLIENTS
 //
 // self.addEventListener('message', (e) => {
