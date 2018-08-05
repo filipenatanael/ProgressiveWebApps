@@ -1,14 +1,19 @@
 // Cache name
-const CACHE_NAME = 'pwa-cache-2.5';
+const CACHE_NAME = 'pwa-cache-2.9';
 // Assets to cache
 const STATIC_ASSETS = [
   './',
   './main.js',
   'index.html',
   'home.html',
-  '../resources/style.css',
-  '../resources/logo.png',
-  '../resources/noconnection.png'
+  './style.css',
+  './logo.png',
+  './icons/icon-72.png',
+  './icons/icon-96.png',
+  './icons/icon-128.png',
+  './icons/icon-144.png',
+  './icons/icon-152.png',
+  './icons/icon-192.png'
 ];
 
 // Service Worker Install
@@ -36,10 +41,12 @@ self.addEventListener('fetch', (e) => {
     if(res) return res;
 
     // Fallback to network
-    caches.open(CACHE_NAME).then(cache => cache.put(e.request, fetchRes));
+    return fetch(e.request).then((fetchRes) => {
+      caches.open(CACHE_NAME).then(cache => cache.put(e.request, fetchRes));
+      // Return clone of fetched response
+      return fetchRes.clone();
+    });
 
-    // Return clone of fatched response
-    return fetchRes.clone();
   })
   e.respondWith(res);
 });
