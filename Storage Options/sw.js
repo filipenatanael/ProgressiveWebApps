@@ -9,8 +9,8 @@ self.addEventListener('install', (e) => {
     return cache.addAll([
       './',
       './main.js',
-      '../Resources/style.css',
-      '../Resources/logo.png'
+      '../resources/style.css',
+      '../resources/logo.png'
     ]);
   });
 

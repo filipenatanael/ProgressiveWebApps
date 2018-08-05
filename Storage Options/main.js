@@ -28,7 +28,7 @@ if (navigator.serviceWorker) {
 //
 //     // cache.addAll([
 //     //   './index.html',
-//     //   '../Resources/style.css',
+//     //   '../resources/style.css',
 //     //   './main.js'
 //     // ]);
 //
