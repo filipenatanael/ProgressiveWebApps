@@ -1,6 +1,7 @@
 # ProgressiveWebApps
 Progressive Web Apps Pratices
 
++ Caching Strategies
 + Promise API
 + Fecth API
 + Service Worker Lifecycle
@@ -11,3 +12,6 @@ Progressive Web Apps Pratices
 + Storage Options
   + CacheStorage
   + Cache API
+
+### Software Development Tools
+- [Web Server for Chrome](https://chrome.google.com/webstore/detail/web-server-for-chrome/ofhbbkphhbklhfoeikjpcbhemlocgigb)
