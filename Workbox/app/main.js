@@ -22,7 +22,7 @@ const _init = () => {
     let caption = $('#caption').val();
 
     // Check message is ok
-    if ( !caption ) {
+    if (!caption) {
 
       // Show notification and return
       toastr.warning('Photo & Caption Required.', 'Incomplete Message');
