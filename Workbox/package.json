@@ -1,5 +1,5 @@
 {
-  "name": "PWAs With Workbox",
+  "name": "pwa-workbox",
   "version": "1.0.0",
   "description": "Simple PWAs with Workbox - Project",
   "main": "server/",
