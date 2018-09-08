@@ -1,0 +1,15 @@
+{
+  "name": "PWAs With Workbox",
+  "version": "1.0.0",
+  "description": "Simple PWAs with Workbox - Project",
+  "main": "server/",
+  "license": "MIT",
+  "scripts": {
+    "start": "node server/"
+  },
+  "dependencies": {
+    "bootstrap": "^4.1.1",
+    "express": "^4.16.3",
+    "jquery": "^3.3.1"
+  }
+}
