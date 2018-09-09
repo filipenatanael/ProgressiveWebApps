@@ -21,8 +21,9 @@ const _init = () => {
   // Submit messages
   $('#send').on("click", () => {
     let caption = $('#caption').val()
+    console.log(camera.photo);
     // Check message is OK
-    if (!caption) {
+    if (!camera.photo || !caption) {
       // Show notification and return
       toastr.warning('Photo & Caption Required.', 'Incomplete Message')
       return;
@@ -44,7 +45,7 @@ const renderMessage = (message) => {
   let msgHTML = `
   <div class="row message bg-light mb-2 rounded shadow">
     <div class="col-2 p-1">
-      <img src="${message.photo} class="photo w-100 rounded">
+      <img src="${message.photo}" class="photo w-100 rounded">
     </div>
     <div class="col-10 p-1">${message.caption}</div>
   </div>
