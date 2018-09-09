@@ -59,6 +59,6 @@ const renderMessage = (msg) => {
 const showPhoto = (e) => {
   let photoSource = $(e.currentTarget).attr('src')
   // Set to and show photoframe modal
-  $('#photoframe').attr('src', photoSource)
+  $('#photoframe img').attr('src', photoSource)
   $('#photoframe').modal('show')
 }
