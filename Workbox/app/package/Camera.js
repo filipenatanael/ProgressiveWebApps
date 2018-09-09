@@ -2,7 +2,7 @@ class Camera {
   // this.video_node
   // this.stream
   // this.photo
-  
+
   constructor(video_node) {
     // Camera stream DOM node
     this.video_node = video_node;
