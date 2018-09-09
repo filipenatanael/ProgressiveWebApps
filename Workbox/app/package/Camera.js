@@ -1,3 +1,4 @@
+
 class Camera {
   // this.video_node
   // this.stream

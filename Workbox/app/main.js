@@ -3,6 +3,8 @@ const camera = new Camera( $('#player')[0] );
 
 const _init = () => {
 
+  const message = new Message()
+
   $('#viewfinder').on("show.bs.modal", () => {
     camera.switch_on()
   });
@@ -21,16 +23,16 @@ const _init = () => {
   // Submit messages
   $('#send').on("click", () => {
     let caption = $('#caption').val()
-    console.log(camera.photo);
-    // Check message is OK
+
     if (!camera.photo || !caption) {
       // Show notification and return
       toastr.warning('Photo & Caption Required.', 'Incomplete Message')
       return;
     }
 
-    // Render new message in feed
-    renderMessage({ photo: camera.photo, caption })
+    // Render new message in feed: renderMessage({ photo: camera.photo, caption })
+    let msg = message.add(camera.photo, caption)
+    renderMessage(msg)
 
     // Reset caption & photo on success
     $('#caption').val('')
@@ -40,17 +42,15 @@ const _init = () => {
 };
 
 // Create new message getElementById
-const renderMessage = (message) => {
-
+const renderMessage = (msg) => {
   let msgHTML = `
-  <div class="row message bg-light mb-2 rounded shadow">
+  <div style="display:none" class="row message bg-light mb-2 rounded shadow">
     <div class="col-2 p-1">
-      <img src="${message.photo}" class="photo w-100 rounded">
+      <img src="${msg.photo}" class="photo w-100 rounded">
     </div>
-    <div class="col-10 p-1">${message.caption}</div>
+    <div class="col-10 p-1">${msg.caption}</div>
   </div>
   `;
-
   // Prepend to messages
-  $(msgHTML).prependTo('#messages');
+  $(msgHTML).prependTo('#messages').show(500);
 }
