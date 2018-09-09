@@ -22,14 +22,14 @@ const _init = () => {
   $('#send').on("click", () => {
     let caption = $('#caption').val()
     // Check message is OK
-    if (!camera.photo || !caption) {
+    if (!caption) {
       // Show notification and return
       toastr.warning('Photo & Caption Required.', 'Incomplete Message')
       return;
     }
 
-    console.log('adding message')
-    console.log(caption)
+    // Render new message in feed
+    renderMessage({ photo: camera.photo, caption })
 
     // Reset caption & photo on success
     $('#caption').val('')
@@ -37,3 +37,19 @@ const _init = () => {
     camera.photo = null
   });
 };
+
+// Create new message getElementById
+const renderMessage = (message) => {
+
+  let msgHTML = `
+  <div class="row message bg-light mb-2 rounded shadow">
+    <div class="col-2 p-1">
+      <img src="${message.photo} class="photo w-100 rounded">
+    </div>
+    <div class="col-10 p-1">${message.caption}</div>
+  </div>
+  `;
+
+  // Prepend to messages
+  $(msgHTML).prependTo('#messages');
+}
