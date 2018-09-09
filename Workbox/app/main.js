@@ -4,37 +4,36 @@ const camera = new Camera( $('#player')[0] );
 const _init = () => {
 
   $('#viewfinder').on("show.bs.modal", () => {
-    camera.switch_on();
+    camera.switch_on()
   });
 
   $('#viewfinder').on("hidden.bs.modal", () => {
-    camera.switch_off();
+    camera.switch_off()
   });
 
   // Take photo
   $('#shutter').on("click", () => {
     let photo = camera.take_photo()
-
     // Show photo preview in camera buttom
-    $('#camera').css('background-image', `url(${ photo })`)
-
+    $('#camera').css('background-image', `url(${photo})`).addClass('withphoto')
   });
 
   // Submit messages
   $('#send').on("click", () => {
-    let caption = $('#caption').val();
+    let caption = $('#caption').val()
     // Check message is OK
-    if (!caption) {
+    if (!camera.photo || !caption) {
       // Show notification and return
-      toastr.warning('Photo & Caption Required.', 'Incomplete Message');
+      toastr.warning('Photo & Caption Required.', 'Incomplete Message')
       return;
     }
 
-    console.log('adding message');
-    console.log(caption);
+    console.log('adding message')
+    console.log(caption)
 
     // Reset caption & photo on success
-    $('#caption').val('');
-
+    $('#caption').val('')
+    $('#camera').css('background-image', '').removeClass('withphoto')
+    camera.photo = null
   });
 };

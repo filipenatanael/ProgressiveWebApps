@@ -1,4 +1,8 @@
 class Camera {
+  // this.video_node
+  // this.stream
+  // this.photo
+  
   constructor(video_node) {
     // Camera stream DOM node
     this.video_node = video_node;
@@ -10,6 +14,7 @@ class Camera {
       video: { width: 600, height: 600 },
       audio: false
     }).then( stream => {
+      // The srcObject property of the HTMLMediaElement interface sets or returns the object which serves as the source of the media associated with the HTMLMediaElement.
       this.video_node.srcObject = this.stream = stream;
     });
   }
