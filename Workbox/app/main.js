@@ -52,5 +52,13 @@ const renderMessage = (msg) => {
   </div>
   `;
   // Prepend to messages
-  $(msgHTML).prependTo('#messages').show(500);
+  $(msgHTML).prependTo('#messages').show(500)
+  .find('img').on("click", showPhoto);
+}
+
+const showPhoto = (e) => {
+  let photoSource = $(e.currentTarget).attr('src')
+  // Set to and show photoframe modal
+  $('#photoframe').attr('src', photoSource)
+  $('#photoframe').modal('show')
 }
