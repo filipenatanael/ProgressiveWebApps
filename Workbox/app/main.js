@@ -1,13 +1,16 @@
+// Camera(document.getElementById('#player')) Native JavaScript
+const camera = new Camera( $('#player')[0] );
+
 const _init = () => {
 
   // Switch on camera in viewfinder
   $('#viewfinder').on("show.bs.modal", () => {
-    console.log('camera on');
+    camera.switch_on();
   });
 
   // Switch off camera in viewfinders
   $('#viewfinder').on("hidden.bs.modal", () => {
-    console.log('camera off');
+    camera.switch_off();
   });
 
   // Take photo
