@@ -5,7 +5,7 @@ class Message {
 
   constructor() {
     this.messages = [];
-    
+
     // Connect to socket server
     this.socket = io();
 
@@ -15,7 +15,13 @@ class Message {
       window.dispatchEvent(new Event('messages_error'));
     });
 
-    // Listen for new message from Serverthis
+    // Listen for all server messages [sent on connects]
+    this.socket.on('all_messages', (messages) => {
+      this.messages = messages; // globalMessages
+      window.dispatchEvent(new Event('messages_ready'));
+    });
+
+    // Listen for new message from Server
     this.socket.on('new_message', (message) => {
       this.messages.unshift(message);
       window.dispatchEvent(new CustomEvent('new_message', { detail: message }));

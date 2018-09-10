@@ -14,6 +14,18 @@ const _init = () => {
     renderMessage(e.detail);
   })
 
+  window.addEventListener('messages_ready', (e) => {
+    $('#loader').remove();
+    // Check some messages exist
+    if(message.all.length == 0) {
+      toastr.info('Add the first message.', 'No messages!');
+    }
+    // Empty out existing messages if this update is from a reconnection
+    $('#loader').empty();
+    // Loop and render all messages [Reverse as we are prepending]
+    message.all.reverse().forEach(renderMessage);
+  });
+
 
   $('#viewfinder').on("show.bs.modal", () => {
     camera.switch_on()
@@ -55,10 +67,10 @@ const _init = () => {
 const renderMessage = (msg) => {
   let msgHTML = `
   <div style="display:none" class="row message bg-light mb-2 rounded shadow">
-    <div class="col-2 p-1">
-      <img src="${msg.photo}" class="photo w-100 rounded">
-    </div>
-    <div class="col-10 p-1">${msg.caption}</div>
+  <div class="col-2 p-1">
+  <img src="${msg.photo}" class="photo w-100 rounded">
+  </div>
+  <div class="col-10 p-1">${msg.caption}</div>
   </div>
   `;
   // Prepend to messages
