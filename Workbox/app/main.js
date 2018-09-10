@@ -3,7 +3,17 @@ const camera = new Camera( $('#player')[0] );
 
 const _init = () => {
 
-  const message = new Message()
+  const message = new Message();
+
+  // Notify user of connection errors
+  window.addEventListener('messages_error', () => {
+    toastr.error('Messages could not be retrieved. <br> Will keep trying.', 'Network Connection Error.')
+  });
+
+  window.addEventListener('new_message', (e) => {
+    renderMessage(e.detail);
+  })
+
 
   $('#viewfinder').on("show.bs.modal", () => {
     camera.switch_on()
