@@ -66,11 +66,11 @@ const _init = () => {
 // Create new message getElementById
 const renderMessage = (msg) => {
   let msgHTML = `
-  <div style="display:none" class="row message bg-light mb-2 rounded shadow">
-  <div class="col-2 p-1">
-  <img src="${msg.photo}" class="photo w-100 rounded">
-  </div>
-  <div class="col-10 p-1">${msg.caption}</div>
+  <div style="display:none; background-color: #ffffe6; opacity: 0.6; color: #000; font-size: 20px; font-weight : bold;" class="row message mb-2 rounded shadow">
+    <div class="col-2 p-1">
+      <img src="${msg.photo}" class="photo w-100 rounded">
+    </div>
+    <div class="col-10 p-1">${msg.caption}</div>
   </div>
   `;
   // Prepend to messages
