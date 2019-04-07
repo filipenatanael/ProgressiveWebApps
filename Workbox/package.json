@@ -12,5 +12,8 @@
     "express": "^4.16.3",
     "jquery": "^3.3.1",
     "toastr": "^2.1.4"
+  },
+  "devDependencies": {
+    "socket.io": "^2.2.0"
   }
 }
